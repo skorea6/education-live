@@ -13,5 +13,6 @@ class LiveBroadcast(Base, BaseMixin):
     detail = Column(String(255, 'utf8_bin'))
     keyword = Column(String(255, 'utf8_bin'))
     stream_code = Column(String(255, 'utf8_bin'), nullable=False)
+    password = Column(String(255, 'utf8_bin'))
     isdel = Column(INTEGER(11), server_default=text("0"))
     created_time = Column(DateTime, nullable=False, default=func.now())

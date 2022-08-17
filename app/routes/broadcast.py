@@ -27,6 +27,7 @@ async def broadcast_list(request: Request, session: Session = Depends(db.session
         LiveBroadcast.keyword,
         LiveBroadcast.stream_code,
         LiveBroadcast.created_time,
+        LiveBroadcast.password,
         Members.nick
     ).join(
         Members, LiveBroadcast.member_id == Members.member_id
@@ -35,6 +36,10 @@ async def broadcast_list(request: Request, session: Session = Depends(db.session
     result = []
 
     for rq in result_query:
+        require_password = False
+        if rq.password:
+            require_password = True
+
         result.append({
             'member_id': rq.member_id,
             'nick': rq.nick,
@@ -42,14 +47,15 @@ async def broadcast_list(request: Request, session: Session = Depends(db.session
             'detail': rq.detail,
             'keyword': rq.keyword,
             'stream_code': rq.stream_code,
+            'require_password': require_password,
             'created_time': D.datetime_to_simple(rq.created_time)
         })
 
     return Successful(result)
 
 
-@router.get('/detail/{stream_code}')
-async def broadcast_list(request: Request, stream_code: str = None, session: Session = Depends(db.session)):
+@router.get('/detail/{stream_code}/{password}')
+async def broadcast_list(request: Request, stream_code: str = None, password: str = None, session: Session = Depends(db.session)):
     if not stream_code:
         return ex.CustomEx(msg="stream_code 는 필수값입니다.")
 
@@ -60,6 +66,7 @@ async def broadcast_list(request: Request, stream_code: str = None, session: Ses
         LiveBroadcast.detail,
         LiveBroadcast.keyword,
         LiveBroadcast.stream_code,
+        LiveBroadcast.password,
         LiveBroadcast.created_time,
         Members.nick
     ).join(
@@ -71,6 +78,10 @@ async def broadcast_list(request: Request, stream_code: str = None, session: Ses
 
     if not result_query:
         return ex.CustomEx(msg="해당 stream_code 가 존재하지 않습니다.")
+
+    if result_query.password:
+        if result_query.password != password:
+            return ex.CustomEx(msg="방송 입장 비밀번호가 일치하지 않습니다.")
 
     return Successful({
             'room': result_query.id,
@@ -99,7 +110,8 @@ async def broadcast_start(request: Request, info_data: BroadcastStart, session: 
                          title=info_data.title,
                          detail=info_data.detail,
                          keyword=info_data.keyword,
-                         stream_code=stream_code
+                         stream_code=stream_code,
+                         password=info_data.password
     )
 
     return Successful(dict(stream_code=stream_code, msg="이제 방송을 시작하세요! 방송 스트림키는 " + stream_code + " 입니다."))

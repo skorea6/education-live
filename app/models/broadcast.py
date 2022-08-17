@@ -5,6 +5,7 @@ class BroadcastStart(BaseModel):
     title: str = None
     keyword: str = None
     detail: str = None
+    password: str = None
 
 
 class BroadcastList(BaseModel):
