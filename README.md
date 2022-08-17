@@ -28,3 +28,12 @@
 * 백엔드: 파이썬 Fast API, Node.js (Socket Io 채팅방)
 * 추가적인 툴: Redis(JWT Token 로그인 시스템 구현), Wowza Streaming Engine(스트리밍 서버 구현), AWS Cloudfront (스트리밍 CDN 구현)
 
+# 프론트앤드 사진
+
+<img width="1440" alt="메인" src="https://user-images.githubusercontent.com/13993684/185157307-2f1adfdf-40f7-4d4a-bd02-34b281c99916.png">
+<img width="1440" alt="스크린샷 2022-08-17 오후 11 09 22" src="https://user-images.githubusercontent.com/13993684/185157332-8cdfb3d0-c0f3-4c79-845d-03d600bad6c1.png">
+<img width="1440" alt="스크린샷 2022-08-17 오후 11 10 06" src="https://user-images.githubusercontent.com/13993684/185157340-a0bd680c-7c91-43ca-b730-ff5a2d3a98c2.png">
+<img width="1440" alt="스크린샷 2022-08-17 오후 11 10 47" src="https://user-images.githubusercontent.com/13993684/185157347-67f34fc3-9e2f-49cc-8e0a-a6472316312d.png">
+<img width="1440" alt="스크린샷 2022-08-17 오후 11 14 04" src="https://user-images.githubusercontent.com/13993684/185157361-9bbef436-7fb8-423f-99d9-dea469f1d8ce.png">
+<img width="1440" alt="스크린샷 2022-08-17 오후 11 14 36" src="https://user-images.githubusercontent.com/13993684/185157367-896963fa-7ac3-4bc4-a334-f32cc69152f7.png">
+
