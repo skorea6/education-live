@@ -5,6 +5,11 @@
 # 프로젝트 제작 이유 / 설명
 친구들이나 모르는 사람들에게 자신이 아는 내용을 실시간으로 알려주고 서로 긴밀하게 소통할 수 있는 ‘교육에 특화된 플랫폼’이 없는 것 같아 제작하게 되었다. 실시간으로 올라오는 채팅과 질문을 분리하여 보여주고, 특정 사람들만 생방송을 시청할 수 있게끔 호스트가 비밀번호를 설정하는 기능이 있다는 점이 내 프로젝트 플랫폼의 가장 큰 장점이라 할 수 있다.
 
+# 연관 Github 바로가기
+* 프론트앤드 : https://github.com/skorea6/educationlive_frontend
+* 백엔드: https://github.com/skorea6/educationlive
+* 채팅서버: https://github.com/skorea6/educationlive_chat
+
 # 프로젝트 활동 기간
 1달
 
